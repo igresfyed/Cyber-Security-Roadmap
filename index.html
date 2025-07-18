@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecPath - Ultimate Cybersecurity Roadmap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6cf7;
+            --primary-dark: #3451b2;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+            --bg-alt: #e2e8f0;
+            --card: #ffffff;
+            --border: #cbd5e1;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --primary: #5b7cfa;
+            --primary-dark: #3b60f7;
+            --secondary: #cbd5e1;
+            --accent: #10b981;
+            --danger: #f87171;
+            --warning: #fbbf24;
+            --text: #e2e8f0;
+            --text-light: #94a3b8;
+            --bg: #0f172a;
+            --bg-alt: #1e293b;
+            --card: #1e293b;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: var(--transition);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23102842" opacity="0.05"/><path d="M0 0L100 100M100 0L0 100" stroke="%234a6cf7" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 5px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: white;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(74, 108, 247, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(74, 108, 247, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(74, 108, 247, 0.4);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--primary);
+            margin-left: 15px;
+            border-color: var(--primary);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 25px auto 0;
+            color: var(--text-light);
+        }
+
+        /* Roadmap Styles */
+        .roadmap-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .roadmap-levels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            gap: 25px;
+        }
+
+        .roadmap-level {
+            flex: 1;
+            background-color: var(--card);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roadmap-level::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .roadmap-level:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .roadmap-level h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .topic-list {
+            list-style: none;
+        }
+
+        .topic-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .topic-item:hover {
+            border-color: var(--primary);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: var(--bg-alt);
+            transition: var(--transition);
+        }
+
+        .topic-item:hover .topic-header {
+            background-color: rgba(74, 108, 247, 0.05);
+        }
+
+        .topic-title {
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topic-title i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .topic-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            background-color: var(--card);
+        }
+
+        .topic-item.active .topic-content {
+            max-height: 2000px;
+            padding: 15px;
+        }
+
+        .subtopics {
+            margin-top: 10px;
+            padding-left: 20px;
+            border-left: 2px dashed var(--primary);
+        }
+
+        .subtopic {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .subtopic:last-child {
+            border-bottom: none;
+        }
+
+        .subtopic:hover {
+            background: rgba(74, 108, 247, 0.07);
+            color: var(--primary);
+        }
+
+        .resource-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .resource-btn {
+            padding: 8px 15px;
+            background-color: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .resource-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .lang-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .lang-en {
+            background-color: rgba(74, 108, 247, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .lang-ar {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        /* Certifications Styles */
+        .cert-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-category {
+            background-color: var(--card);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+
+        .cert-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cert-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .cert-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .cert-content {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .cert-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Tools Styles */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background-color: var(--card);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 60px 60px 0;
+            border-color: transparent var(--primary) transparent transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(74, 108, 247, 0.3);
+        }
+
+        .tool-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .tool-desc {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tool-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--card);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-alt);
+            color: var(--text);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .roadmap-levels {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--card);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px var(--shadow);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 15px 20px;
+                color: var(--text);
+            }
+            
+            .nav-links a:hover {
+                color: var(--primary);
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .cta-button.secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cert-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Styles */
+        .topic-sidebar {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 400px;
+            height: 100vh;
+            background: var(--card);
+            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+            z-index: 9999;
+            transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+            overflow-y: auto;
+        }
+        .topic-sidebar.active {
+            right: 0;
+        }
+        .sidebar-content {
+            padding: 32px 24px 24px 24px;
+        }
+        .close-sidebar {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        .sidebar-videos {
+            margin: 24px 0 18px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        @media (max-width: 600px) {
+            .topic-sidebar {
+                width: 100vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span>CyberSecPath</span>
+                </a>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#home">Home</a>
+                    <a href="#roadmap">Roadmap</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#tools">Tools</a>
+                    <a href="#resources">Resources</a>
+                    <a href="#community">Community</a>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Ultimate Cybersecurity Roadmap</h1>
+            <p>Your comprehensive guide to navigating the cybersecurity landscape. Whether you're just starting or looking to advance your skills, we provide the resources, tools, and community support you need to succeed.</p>
+            <div class="hero-buttons">
+                <a href="#roadmap" class="cta-button">Start Learning</a>
+                <a href="#community" class="cta-button secondary">Join Community</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="section" id="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cybersecurity Roadmap</h2>
+                <p>Structured learning paths for all skill levels. Click on each topic to expand and discover resources.</p>
+            </div>
+            
+            <div class="roadmap-container">
+                <div class="roadmap-levels">
+                    <div class="roadmap-level">
+                        <h3><i class="fas fa-seedling"></i> Beginner</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item" data-topic="networking">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-network-wired"></i>
+                                        Networking Fundamentals
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Understanding network protocols, IP addressing, and network architecture.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">OSI Model & TCP/IP Stack</div>
+                                        <div class="subtopic">IP Addressing & Subnetting</div>
+                                        <div class="subtopic">Switching & Routing Concepts</div>
+                                        <div class="subtopic">Network Protocols (TCP, UDP, HTTP, DNS)</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="linux">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fab fa-linux"></i>
+                                        Linux Fundamentals
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Essential Linux commands, file systems, and administration.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Linux File System Hierarchy</div>
+                                        <div class="subtopic">Command Line Essentials</div>
+                                        <div class="subtopic">User & Permission Management</div>
+                                        <div class="subtopic">Package Management</div>
+                                        <div class="subtopic">Shell Scripting Basics</div>
+                                        <div class="subtopic">System Monitoring & Processes</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="programming">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-code"></i>
+                                        Programming Basics
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Programming fundamentals with Python and Bash scripting.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Python Syntax & Data Structures</div>
+                                        <div class="subtopic">Bash Scripting</div>
+                                        <div class="subtopic">Automation with Python</div>
+                                        <div class="subtopic">Working with APIs</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="windows">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fab fa-windows"></i>
+                                        Windows Basics
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Windows OS essentials for cybersecurity beginners.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">File System & Permissions</div>
+                                        <div class="subtopic">CMD & PowerShell</div>
+                                        <div class="subtopic">User Management</div>
+                                        <div class="subtopic">System Tools</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="virtualization">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-server"></i>
+                                        Virtualization & VMs
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Basics of virtualization and using virtual machines for labs.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">What is Virtualization?</div>
+                                        <div class="subtopic">Installing VirtualBox/VMware</div>
+                                        <div class="subtopic">Creating and Managing VMs</div>
+                                        <div class="subtopic">Snapshots & Networking</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="cyberethics">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-balance-scale"></i>
+                                        Cybersecurity Ethics
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Understanding the ethical and legal aspects of cybersecurity.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Ethical Hacking vs. Malicious Hacking</div>
+                                        <div class="subtopic">Laws & Regulations</div>
+                                        <div class="subtopic">Responsible Disclosure</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="roadmap-level">
+                        <h3><i class="fas fa-chart-line"></i> Intermediate</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item" data-topic="websec">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-lock"></i>
+                                        Web Security
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Understanding web vulnerabilities and defense mechanisms.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">OWASP Top 10 Vulnerabilities</div>
+                                        <div class="subtopic">XSS, CSRF, SQL Injection</div>
+                                        <div class="subtopic">Session Management & Authentication</div>
+                                        <div class="subtopic">Web Application Firewalls</div>
+                                        <div class="subtopic">Secure Coding Practices</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="netsec">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Network Security
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Securing network infrastructure and communication.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Firewalls & IDS/IPS Systems</div>
+                                        <div class="subtopic">VPN Technologies</div>
+                                        <div class="subtopic">Network Segmentation</div>
+                                        <div class="subtopic">Wireless Security</div>
+                                        <div class="subtopic">Network Monitoring</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="ossec">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-desktop"></i>
+                                        Operating System Security
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Hardening Windows and Linux systems against attacks.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Windows Security Architecture</div>
+                                        <div class="subtopic">Linux Hardening Techniques</div>
+                                        <div class="subtopic">Patch Management</div>
+                                        <div class="subtopic">Endpoint Protection</div>
+                                        <div class="subtopic">Privilege Management</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="cryptography">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-key"></i>
+                                        Cryptography Basics
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Encryption, decryption, and cryptographic protocols.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Symmetric & Asymmetric Encryption</div>
+                                        <div class="subtopic">Hashing Algorithms</div>
+                                        <div class="subtopic">PKI & Certificates</div>
+                                        <div class="subtopic">TLS/SSL</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="forensics">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-microscope"></i>
+                                        Digital Forensics
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Basics of digital forensics and evidence handling.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Forensic Imaging</div>
+                                        <div class="subtopic">Chain of Custody</div>
+                                        <div class="subtopic">File System Forensics</div>
+                                        <div class="subtopic">Memory Analysis</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="scripting">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-terminal"></i>
+                                        Scripting for Security
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Using scripts to automate security tasks.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Bash Scripting</div>
+                                        <div class="subtopic">Python for Security</div>
+                                        <div class="subtopic">Automating Scans</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="roadmap-level">
+                        <h3><i class="fas fa-rocket"></i> Advanced</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item" data-topic="redteam">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-skull"></i>
+                                        Red Team Operations
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Advanced penetration testing and offensive security techniques.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Advanced Exploitation Techniques</div>
+                                        <div class="subtopic">Post-Exploitation Tactics</div>
+                                        <div class="subtopic">AD Security & Attacks</div>
+                                        <div class="subtopic">Privilege Escalation Methods</div>
+                                        <div class="subtopic">Evading Detection Systems</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="blueteam">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-user-shield"></i>
+                                        Blue Team Operations
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Defensive security strategies and incident response.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">SIEM Implementation</div>
+                                        <div class="subtopic">Threat Hunting</div>
+                                        <div class="subtopic">Incident Response Frameworks</div>
+                                        <div class="subtopic">Digital Forensics</div>
+                                        <div class="subtopic">Security Orchestration</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="cloudsec">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-cloud"></i>
+                                        Cloud Security
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Securing cloud infrastructure and services.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">AWS/Azure/GCP Security</div>
+                                        <div class="subtopic">Container Security (Docker/K8s)</div>
+                                        <div class="subtopic">Serverless Security</div>
+                                        <div class="subtopic">Cloud Configuration Auditing</div>
+                                        <div class="subtopic">Identity Management in Cloud</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="malware">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-bug"></i>
+                                        Malware Analysis
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Analyzing and understanding malicious software.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Static & Dynamic Analysis</div>
+                                        <div class="subtopic">Reverse Engineering</div>
+                                        <div class="subtopic">Sandboxing</div>
+                                        <div class="subtopic">Malware Types</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="pentest">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-user-secret"></i>
+                                        Penetration Testing
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Comprehensive penetration testing methodologies and tools.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Reconnaissance</div>
+                                        <div class="subtopic">Scanning & Enumeration</div>
+                                        <div class="subtopic">Exploitation</div>
+                                        <div class="subtopic">Reporting</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="reverse">
+                                <div class="topic-header clickable">
+                                    <div class="topic-title">
+                                        <i class="fas fa-sync-alt"></i>
+                                        Reverse Engineering
+                                    </div>
+                                </div>
+                                <div class="topic-content">
+                                    <p>Understanding and analyzing software internals and binaries.</p>
+                                    <div class="subtopics">
+                                        <div class="subtopic">Disassemblers & Debuggers</div>
+                                        <div class="subtopic">Binary Analysis</div>
+                                        <div class="subtopic">Malware Reverse Engineering</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section" id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cybersecurity Certifications</h2>
+                <p>Recognized credentials to validate your cybersecurity knowledge and skills.</p>
+            </div>
+            <div class="cert-categories">
+                <div class="cert-category">
+                    <h3><i class="fas fa-user-graduate"></i> Beginner</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <div class="cert-title">CompTIA Security+</div>
+                            <div class="cert-content">Foundational security certification covering core security functions.</div>
+                            <div class="cert-buttons">
+                                <a href="https://www.comptia.org/certifications/security" class="resource-btn" target="_blank"><i class="fas fa-link"></i> Official Page</a>
+                                <a href="https://www.cybrary.it/course/comptia-security-plus/" class="resource-btn" target="_blank"><i class="fas fa-book"></i> Free Content</a>
+                                <a href="https://www.youtube.com/results?search_query=CompTIA+Security%2B+Arabic" class="resource-btn" target="_blank">
+                                    <i class="fas fa-globe"></i> Arabic
+                                    <span class="lang-badge lang-ar">عربي</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">CompTIA Network+</div>
+                            <div class="cert-content">Essential networking skills and concepts.</div>
+                            <div class="cert-buttons">
+                                <a href="https://www.comptia.org/certifications/network" class="resource-btn" target="_blank"><i class="fas fa-link"></i> Official Page</a>
+                                <a href="https://www.cybrary.it/course/comptia-network-plus/" class="resource-btn" target="_blank"><i class="fas fa-book"></i> Free Content</a>
+                            </div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">Cisco CCNA</div>
+                            <div class="cert-content">Cisco Certified Network Associate for networking fundamentals.</div>
+                            <div class="cert-buttons">
+                                <a href="https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html" class="resource-btn" target="_blank"><i class="fas fa-link"></i> Official Page</a>
+                                <a href="https://www.cybrary.it/course/ccna/" class="resource-btn" target="_blank"><i class="fas fa-book"></i> Free Content</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cert-category">
+                    <h3><i class="fas fa-user-tie"></i> Intermediate</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <div class="cert-title">CEH (Certified Ethical Hacker)</div>
+                            <div class="cert-content">Ethical hacking techniques and tools.</div>
+                            <div class="cert-buttons">
+                                <a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/" class="resource-btn" target="_blank"><i class="fas fa-link"></i> Official Page</a>
+                                <a href="https://www.cybrary.it/course/ceh/" class="resource-btn" target="_blank"><i class="fas fa-book"></i> Free Content</a>
+                                <a href="https://www.youtube.com/results?search_query=CEH+Arabic" class="resource-btn" target="_blank">
+                                    <i class="fas fa-globe"></i> Arabic
+                                    <span class="lang-badge lang-ar">عربي</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">OSCP (Offensive Security Certified Professional)</div>
+                            <div class="cert-content">Hands-on penetration testing certification.</div>
+                            <div class="cert-buttons">
+                                <a href="https://www.offensive-security.com/pwk-oscp/" class="resource-btn" target="_blank"><i class="fas fa-link"></i> Official Page</a>
+                                <a href="https://www.cybrary.it/course/oscp/" class="resource-btn" target="_blank"><i class="fas fa-book"></i> Free Content</a>
+                            </div>
+                        </li>
+                        <li class="cert-item">
+                            <div class="cert-title">CISSP (Certified Information Systems Security Professional)</div>
+                            <div class="cert-content">Advanced information security certification.</div>
+                            <div class="cert-buttons">
+                                <a href="https://www.isc2.org/Certifications/CISSP" class="resource-btn" target="_blank"><i class="fas fa-link"></i> Official Page</a>
+                                <a href="https://www.cybrary.it/course/cissp/" class="resource-btn" target="_blank"><i class="fas fa-book"></i> Free Content</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="section" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Essential Cybersecurity Tools</h2>
+                <p>Powerful utilities to enhance your security assessments and operations.</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="tool-title">Nmap</h3>
+                    <p class="tool-desc">Network discovery and security auditing tool. Scan networks to discover hosts and services.</p>
+                    <div class="tool-links">
+                        <a href="https://nmap.org/download.html" target="_blank" class="resource-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="https://www.youtube.com/results?search_query=Nmap+Tutorial" target="_blank" class="resource-btn"><i class="fab fa-youtube"></i> Tutorial</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="tool-title">Metasploit</h3>
+                    <p class="tool-desc">Penetration testing framework for developing and executing exploit code.</p>
+                    <div class="tool-links">
+                        <a href="https://www.metasploit.com/download" target="_blank" class="resource-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="https://www.youtube.com/results?search_query=Metasploit+Tutorial" target="_blank" class="resource-btn"><i class="fab fa-youtube"></i> Tutorial</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="tool-title">Wireshark</h3>
+                    <p class="tool-desc">Network protocol analyzer for troubleshooting, analysis, and education.</p>
+                    <div class="tool-links">
+                        <a href="https://www.wireshark.org/download.html" target="_blank" class="resource-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="https://www.youtube.com/results?search_query=Wireshark+Tutorial" target="_blank" class="resource-btn"><i class="fab fa-youtube"></i> Tutorial</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="tool-title">Burp Suite</h3>
+                    <p class="tool-desc">Web vulnerability scanner and penetration testing tool for web applications.</p>
+                    <div class="tool-links">
+                        <a href="https://portswigger.net/burp/communitydownload" target="_blank" class="resource-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="https://www.youtube.com/results?search_query=Burp+Suite+Tutorial" target="_blank" class="resource-btn"><i class="fab fa-youtube"></i> Tutorial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section" id="resources">
+        <div class="container">
+            <div class="section-header">
+                <h2>Learning Resources</h2>
+                <p>Curated collection of free courses, books, and content to accelerate your cybersecurity journey.</p>
+            </div>
+            <div class="resources-container">
+                <div class="resource-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Free Courses</h3>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/@HackerSploit/playlists" target="_blank"><i class="fas fa-link"></i> Best resource (
+                                HackerSploit
+                                )</a>
+                            <a href="https://www.coursera.org/learn/intro-cyber-attacks" target="_blank"><i class="fas fa-link"></i> Cybersecurity Fundamentals (English)</a>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/results?search_query=Ethical+Hacking+Course+Arabic" target="_blank"><i class="fas fa-link"></i> Ethical Hacking Course (Arabic)
+                                <span class="lang-badge lang-ar">عربي</span>
+                            </a>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.udemy.com/course/network-security/" target="_blank"><i class="fas fa-link"></i> Network Security Essentials</a>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/results?search_query=Linux+Security+Arabic" target="_blank"><i class="fas fa-link"></i> Linux Security (Arabic)
+                                <span class="lang-badge lang-ar">عربي</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h3><i class="fas fa-book"></i> eBooks & Docs</h3>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank"><i class="fas fa-link"></i> OWASP Web Security Testing Guide</a>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.nist.gov/cyberframework" target="_blank"><i class="fas fa-link"></i> NIST Cybersecurity Framework</a>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/results?search_query=Linux+Security+Handbook+Arabic" target="_blank"><i class="fas fa-link"></i> Linux Security Handbook (Arabic)
+                                <span class="lang-badge lang-ar">عربي</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section" id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2>Join Our Community</h2>
+                <p>Connect with cybersecurity enthusiasts, professionals, and learners worldwide.</p>
+            </div>
+            
+            <div class="community-content">
+                <div class="community-intro">
+                    <h3>CyberSecPath Community</h3>
+                    <p>Join our vibrant community of cybersecurity professionals and enthusiasts. Share knowledge, ask questions, and collaborate on security projects.</p>
+                    <p>Our Discord server has channels for different cybersecurity topics, job postings, and study groups. Beginners are especially welcome!</p>
+                    
+                    <a href="#" class="cta-button">
+                        <i class="fab fa-discord"></i> Join Our Discord Community
+                    </a>
+                    
+                    <h4>Networking Tips</h4>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <i class="fas fa-check-circle"></i> Attend cybersecurity conferences and meetups
+                        </li>
+                        <li class="resource-item">
+                            <i class="fas fa-check-circle"></i> Contribute to open-source security projects
+                        </li>
+                        <li class="resource-item">
+                            <i class="fas fa-check-circle"></i> Participate in Capture The Flag (CTF) competitions
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CyberSecPath</h3>
+                    <p>Your comprehensive guide to cybersecurity learning and career development.</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/search?q=cybersecurity" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/groups/8685076/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/topics/cybersecurity" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://discord.com/invite/cybersecurity" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#roadmap"><i class="fas fa-road"></i> Roadmap</a></li>
+                        <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+                        <li><a href="#tools"><i class="fas fa-tools"></i> Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#resources"><i class="fas fa-book"></i> Learning Resources</a></li>
+                        <li><a href="#community"><i class="fas fa-users"></i> Community</a></li>
+                        <li><a href="https://www.cybersecurity-insiders.com/blog/" target="_blank"><i class="fas fa-blog"></i> Blog</a></li>
+                        <li><a href="https://www.cisa.gov/news-events/news" target="_blank"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.cybersecpath.com/privacy-policy" target="_blank"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                        <li><a href="https://www.cybersecpath.com/terms-of-service" target="_blank"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="mailto:info@cybersecpath.com" target="_blank"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CyberSecPath. All rights reserved. Designed with <i class="fas fa-heart"></i> for cybersecurity enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sidebar for Topic Details -->
+    <div id="topicSidebar" class="topic-sidebar">
+        <div class="sidebar-content">
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+            <h2 id="sidebarTitle"></h2>
+            <p id="sidebarDesc"></p>
+            <div class="sidebar-videos" id="sidebarVideos"></div>
+            <div class="sidebar-links" id="sidebarLinks"></div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Roadmap Topic Toggle
+        const topicItems = document.querySelectorAll('.topic-item');
+        
+        topicItems.forEach(item => {
+            const header = item.querySelector('.topic-header');
+            
+            header.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = header.querySelector('i.fa-chevron-down, i.fa-chevron-up');
+                if (icon) {
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                }
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Sidebar dynamic data for topics
+        const topicData = {
+            networking: {
+                title: 'Networking Fundamentals',
+                desc: 'Learn the basics of networking: protocols, addressing, architecture, and how the internet works. Essential knowledge for anyone starting in cybersecurity.',
+                videos: [
+                    
+                    
+                    'https://www.youtube.com/playlist?list=PLujems1WwnRlXvtnHH8aBwkoNoka6ClLG',
+                    'https://www.youtube.com/playlist?list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8'
+                ],
+                links: [
+                    {url: 'https://www.geeksforgeeks.org/computer-network-tutorials/', icon: 'fas fa-book', text: 'Written Guide (GeeksForGeeks)'},
+                    {url: 'https://www.coursera.org/learn/computer-networking', icon: 'fas fa-graduation-cap', text: 'Free Course (Coursera)'},
+                    {url: 'https://www.youtube.com/results?search_query=Networking+Fundamentals+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            linux: {
+                title: 'Linux Fundamentals',
+                desc: 'Essential Linux commands, file systems, and administration skills.',
+                videos: [
+                    'https://www.youtube.com/embed/IVquJh3DXUA',
+                    'https://www.youtube.com/embed/yz7nYlnXLfE',
+                    'https://www.youtube.com/watch?v=v392lEyM29A',
+                    'https://www.youtube.com/watch?v=8f2Zsb89uoM',
+                    'https://www.youtube.com/watch?v=sWbUDq4S6Y8',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGPdTHUObWn7dZtlHnSl_xFf',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGNZatM4Ax-LPA2UThcK3Q9Z'
+                ],
+                links: [
+                    {url: 'https://ryanstutorials.net/linuxtutorial/', icon: 'fas fa-book', text: 'Written Guide (Ryan Tutorials)'},
+                    {url: 'https://www.udemy.com/course/linux-for-beginners/', icon: 'fas fa-graduation-cap', text: 'Course (Udemy)'},
+                    {url: 'https://www.youtube.com/results?search_query=Linux+Fundamentals+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            programming: {
+                title: 'Programming Basics',
+                desc: 'Programming fundamentals with Python and Bash scripting.',
+                videos: [
+                    'https://www.youtube.com/embed/_uQrJ0TkZlc',
+                    'https://www.youtube.com/embed/oxuRxtrO2Ag',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGM_dncTqO9l-0zUQYP0nNPU'
+                ],
+                links: [
+                    {url: 'https://www.learnpython.org/', icon: 'fas fa-book', text: 'Learn Python (LearnPython)'},
+                    {url: 'https://www.codecademy.com/learn/learn-python-3', icon: 'fas fa-graduation-cap', text: 'Course (Codecademy)'},
+                    {url: 'https://www.youtube.com/results?search_query=Python+Programming+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            windows: {
+                title: 'Windows Basics',
+                desc: 'Windows OS essentials for cybersecurity beginners.',
+                videos: [
+                    'https://www.youtube.com/watch?v=xKe2YrGlfR0'
+                ],
+                links: [
+                    {url: 'https://learn.microsoft.com/en-us/windows/', icon: 'fas fa-book', text: 'Official Docs'},
+                    {url: 'https://www.youtube.com/results?search_query=Windows+Basics+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            virtualization: {
+                title: 'Virtualization & VMs',
+                desc: 'Basics of virtualization and using virtual machines for labs.',
+                videos: [
+                    'https://www.youtube.com/watch?v=wX75Z-4MEoM',
+                    'https://www.youtube.com/playlist?list=PLf7QeYWBebsdlJguAzRR8I1bUIxCHujNo'
+                ],
+                links: [
+                    {url: 'https://www.virtualbox.org/manual/', icon: 'fas fa-book', text: 'VirtualBox Manual'},
+                    {url: 'https://www.vmware.com/products/workstation-player.html', icon: 'fas fa-download', text: 'VMware Player'},
+                    {url: 'https://www.youtube.com/results?search_query=Virtualization+Tutorial', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            cyberethics: {
+                title: 'Cybersecurity Ethics',
+                desc: 'Understanding the ethical and legal aspects of cybersecurity.',
+                videos: [
+                    'https://www.youtube.com/playlist?list=PLwO5-rumi8A4J7h4Fm92TEC00gfZUk7ls',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGOepimcP15eS6Y-aR4m6ql3'
+                ],
+                links: [
+                    {url: 'https://www.isc2.org/Ethics', icon: 'fas fa-book', text: 'Ethics Code (ISC2)'},
+                    {url: 'https://www.eccouncil.org/code-of-ethics/', icon: 'fas fa-book', text: 'Ethics Code (EC-Council)'},
+                    {url: 'https://www.youtube.com/results?search_query=Cybersecurity+Ethics', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            websec: {
+                title: 'Web Security',
+                desc: 'Understanding web vulnerabilities and defense mechanisms.',
+                videos: [
+                    'https://www.youtube.com/watch?v=80VviDER96I',
+                    'https://www.youtube.com/playlist?list=PLwP4ObPL5GY940XhCtAykxLxLEOKCu0nT',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGO3EpGAs718LvLsiMIv9dSC',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGPrltjHLkzIO7j2NlP8uKGx'
+                ],
+                links: [
+                    {url: 'https://owasp.org/www-project-top-ten/', icon: 'fas fa-book', text: 'OWASP Top 10'},
+                    {url: 'https://www.hacksplaining.com/', icon: 'fas fa-graduation-cap', text: 'Interactive Training'},
+                    {url: 'https://www.youtube.com/results?search_query=Web+Security+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            netsec: {
+                title: 'Network Security',
+                desc: 'Securing network infrastructure and communication.',
+                videos: [
+                    'https://www.youtube.com/watch?v=nbkMhVyuOm8',
+                    'https://www.youtube.com/playlist?list=PLBlnK6fEyqRgJU3EsOYDTW7m6SUmW6kII',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGM8V_3OEKhvCM9Xah3qDdIx'
+                ],
+                links: [
+                    {url: 'https://www.cloudflare.com/learning/network-layer/what-is-network-security/', icon: 'fas fa-book', text: 'Written Guide (Cloudflare)'},
+                    {url: 'https://www.youtube.com/results?search_query=Network+Security+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            ossec: {
+                title: 'Operating System Security',
+                desc: 'Hardening Windows and Linux systems against attacks.',
+                videos: [
+                    'https://www.youtube.com/watch?v=2vqLL3Cfkwc'
+                ],
+                links: [
+                    {url: 'https://www.geeksforgeeks.org/operating-system-security/', icon: 'fas fa-book', text: 'Written Guide (GeeksForGeeks)'},
+                    {url: 'https://www.youtube.com/results?search_query=Operating+System+Security+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            cryptography: {
+                title: 'Cryptography Basics',
+                desc: 'Encryption, decryption, and cryptographic protocols.',
+                videos: [
+                    'https://www.youtube.com/watch?v=j_8PLI_wCVU',
+                    'https://www.youtube.com/playlist?list=PLBlnK6fEyqRgJU3EsOYDTW7m6SUmW6kII'
+                ],
+                links: [
+                    {url: 'https://www.khanacademy.org/computing/computer-science/cryptography', icon: 'fas fa-book', text: 'Written Guide (Khan Academy)'},
+                    {url: 'https://www.youtube.com/results?search_query=Cryptography+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            forensics: {
+                title: 'Digital Forensics',
+                desc: 'Basics of digital forensics and evidence handling.',
+                videos: [
+                    'https://www.youtube.com/watch?v=aRbKFCY4tjE'
+                ],
+                links: [
+                    {url: 'https://www.nist.gov/topics/forensics', icon: 'fas fa-book', text: 'NIST Resources'},
+                    {url: 'https://www.sans.org/digital-forensics-incident-response/', icon: 'fas fa-graduation-cap', text: 'SANS Resources'},
+                    {url: 'https://www.youtube.com/results?search_query=Digital+Forensics+Basics', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            scripting: {
+                title: 'Scripting for Security',
+                desc: 'Using scripts to automate security tasks.',
+                videos: [
+                    'https://www.youtube.com/watch?v=x7SabN3G8go',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGMJzHon4YXGscxUvsFpxrZT'
+                ],
+                links: [
+                    {url: 'https://automatetheboringstuff.com/', icon: 'fas fa-book', text: 'Automate the Boring Stuff'},
+                    {url: 'https://www.learnshell.org/', icon: 'fas fa-graduation-cap', text: 'Learn Shell Scripting'},
+                    {url: 'https://www.youtube.com/results?search_query=Security+Scripting', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            redteam: {
+                title: 'Red Team Operations',
+                desc: 'Advanced penetration testing and offensive security techniques.',
+                videos: [
+                    'https://www.youtube.com/watch?v=wiAlgfm8krE',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGMjSlPmJ73Cydh9vCqxukCu',
+                    'https://www.youtube.com/watch?v=1J7dWJMEnl8&list=PLBf0hzazHTGNJXBjepzN7l9OHcuH9ZvOq',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGOh6JBKc8WkpyuZgDPW6yTk',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGN31ZPTzBbk70bohTYT7HSm'
+
+                ],
+                links: [
+                    {url: 'https://www.offensive-security.com/', icon: 'fas fa-book', text: 'Offensive Security (OSCP)'},
+                    {url: 'https://www.youtube.com/results?search_query=Red+Team+Operations', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            blueteam: {
+                title: 'Blue Team Operations',
+                desc: 'Defensive security strategies and incident response.',
+                videos: [
+                    'https://www.youtube.com/watch?v=szQhcE2qXJ8',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGNcIS_dHjM2NgNUFMW1EZFx',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGOEuhPQSnq-Ej8jRyXxfYvl'
+                ],
+                links: [
+                    {url: 'https://www.sans.org/blue-team/', icon: 'fas fa-book', text: 'SANS Blue Team'},
+                    {url: 'https://www.youtube.com/results?search_query=Blue+Team+Operations', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            cloudsec: {
+                title: 'Cloud Security',
+                desc: 'Securing cloud infrastructure and services.',
+                videos: [
+                    'https://www.youtube.com/watch?v=nbkMhVyuOm8',
+                    'https://www.youtube.com/playlist?list=PLBf0hzazHTGPsUAdkN3DOyyExRjk8SshU'
+                ],
+                links: [
+                    {url: 'https://cloudsecurityalliance.org/', icon: 'fas fa-book', text: 'Cloud Security Alliance'},
+                    {url: 'https://www.youtube.com/results?search_query=Cloud+Security+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            malware: {
+                title: 'Malware Analysis',
+                desc: 'Analyzing and understanding malicious software.',
+                videos: [
+                    'https://www.youtube.com/watch?v=aRbKFCY4tjE'
+                ],
+                links: [
+                    {url: 'https://www.malwareunicorn.org/', icon: 'fas fa-book', text: 'Malware Unicorn'},
+                    {url: 'https://www.youtube.com/results?search_query=Malware+Analysis+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            pentest: {
+                title: 'Penetration Testing',
+                desc: 'Comprehensive penetration testing methodologies and tools.',
+                videos: [
+                    'https://www.youtube.com/embed/2e--p1YdK6A',
+                    'https://www.youtube.com/embed/1d1hQ1Y8F8o'
+                ],
+                links: [
+                    {url: 'https://www.offensive-security.com/', icon: 'fas fa-book', text: 'Offensive Security (OSCP)'},
+                    {url: 'https://www.youtube.com/results?search_query=Penetration+Testing+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            },
+            reverse: {
+                title: 'Reverse Engineering',
+                desc: 'Understanding and analyzing software internals and binaries.',
+                videos: [
+                    'https://www.youtube.com/playlist?list=PL7iSco3duZcrs-SgnOXaX9qLyB97tnYLO'
+                ],
+                links: [
+                    {url: 'https://www.malwareunicorn.org/', icon: 'fas fa-book', text: 'Malware Unicorn'},
+                    {url: 'https://www.youtube.com/results?search_query=Reverse+Engineering+for+Beginners', icon: 'fab fa-youtube', text: 'More Videos'}
+                ]
+            }
+        };
+
+        const topicSidebar = document.getElementById('topicSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+        const sidebarTitle = document.getElementById('sidebarTitle');
+        const sidebarDesc = document.getElementById('sidebarDesc');
+        const sidebarVideos = document.getElementById('sidebarVideos');
+        const sidebarLinks = document.getElementById('sidebarLinks');
+
+        // Make all topic headers clickable
+        const topicHeaders = document.querySelectorAll('.topic-header.clickable');
+        topicHeaders.forEach(header => {
+            header.addEventListener('click', function(e) {
+                // Prevent if subtopic was clicked
+                if (e.target.classList.contains('subtopic')) return;
+                e.stopPropagation();
+                const topicItem = header.closest('.topic-item');
+                const topicKey = topicItem.getAttribute('data-topic');
+                if (topicData[topicKey]) {
+                    sidebarTitle.textContent = topicData[topicKey].title;
+                    sidebarDesc.textContent = topicData[topicKey].desc;
+                    // Videos
+                    sidebarVideos.innerHTML = '';
+                    topicData[topicKey].videos.forEach(v => {
+                        if (v.includes('playlist?list=')) {
+                            // عرض زر أو رابط للـ playlist
+                            sidebarVideos.innerHTML += `<a href="${v}" target="_blank" class="resource-btn" style="margin-bottom:12px;display:inline-block"><i class="fab fa-youtube"></i> مشاهدة Playlist على يوتيوب</a>`;
+                        } else if (v.includes('watch?v=')) {
+                            // تحويل رابط watch?v= إلى embed
+                            const videoId = v.split('watch?v=')[1].split('&')[0];
+                            const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                            sidebarVideos.innerHTML += `<iframe width="100%" height="220" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+                        } else {
+                            // روابط embed الجاهزة
+                            sidebarVideos.innerHTML += `<iframe width="100%" height="220" src="${v}" frameborder="0" allowfullscreen></iframe>`;
+                        }
+                    });
+                    // Links
+                    sidebarLinks.innerHTML = '';
+                    topicData[topicKey].links.forEach(l => {
+                        sidebarLinks.innerHTML += `<a href="${l.url}" target="_blank" class="resource-btn"><i class="${l.icon}"></i> ${l.text}</a>`;
+                    });
+                    topicSidebar.classList.add('active');
+                }
+            });
+        });
+
+        closeSidebarBtn.addEventListener('click', function() {
+            topicSidebar.classList.remove('active');
+        });
+        window.addEventListener('click', function(e) {
+            if (topicSidebar.classList.contains('active') && 
+                !topicSidebar.contains(e.target) && 
+                !e.target.classList.contains('topic-header')) {
+                topicSidebar.classList.remove('active');
+            }
+        });
+
+        // Subtopic sidebar logic
+        const subtopicSidebarData = async (subtopicName) => {
+            // Generate a more detailed description
+            const desc = `Brief explanation about "${subtopicName}" in cybersecurity. This topic is important for understanding technical or practical aspects related to cybersecurity. Search for specialized videos or articles for more in-depth knowledge.`;
+            // Generate YouTube search URL
+            const ytSearch = `https://www.youtube.com/results?search_query=${encodeURIComponent(subtopicName + ' cybersecurity')}`;
+            return {
+                title: subtopicName,
+                desc: desc,
+                extra: `This topic helps you understand: ${subtopicName}. Try watching a tutorial video or reading a specialized article.`,
+                ytLink: ytSearch,
+                links: [
+                    {url: `https://www.google.com/search?q=${encodeURIComponent(subtopicName + ' cybersecurity')}`, icon: 'fab fa-google', text: 'Search on Google'},
+                    {url: ytSearch, icon: 'fab fa-youtube', text: 'Search on YouTube'}
+                ]
+            };
+        };
+
+        // Make all subtopics clickable
+        const subtopics = document.querySelectorAll('.subtopic');
+        subtopics.forEach(sub => {
+            sub.addEventListener('click', async function(e) {
+                e.stopPropagation();
+                const subtopicName = sub.textContent.trim();
+                const data = await subtopicSidebarData(subtopicName);
+                sidebarTitle.textContent = data.title;
+                sidebarDesc.textContent = data.desc;
+                // Add direct YouTube link
+                sidebarVideos.innerHTML = `<a href="${data.ytLink}" target="_blank" class="resource-btn" style="margin-bottom:12px;display:inline-block"><i class="fab fa-youtube"></i> Tutorial Video about ${data.title}</a>`;
+                // Add extra explanation
+                sidebarVideos.innerHTML += `<div style="margin-bottom:10px;color:var(--text-light);font-size:1rem;">${data.extra}</div>`;
+                sidebarLinks.innerHTML = '';
+                data.links.forEach(l => {
+                    sidebarLinks.innerHTML += `<a href="${l.url}" target="_blank" class="resource-btn"><i class="${l.icon}"></i> ${l.text}</a>`;
+                });
+                topicSidebar.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
